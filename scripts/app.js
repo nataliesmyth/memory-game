@@ -5,6 +5,7 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
+
 function flipCard() {
     if (lockBoard) return;
     // prevent user from clicking the same card twice
@@ -57,5 +58,23 @@ function resetBoard() {
     [hasFlippedCard, lockBoard] = [false, false];
     [firstCard, secondCard] = [null, null];
 }
+
+// unfinished function
+// function resetGame() {
+//     [hasFlippedCard, lockBoard] = [false, false];
+//     [firstCard, secondCard] = [null, null];
+// }
+
+
+(function shuffle() {
+    cards.forEach(card => {
+      let ramdomPos = Math.floor(Math.random() * 12);
+      card.style.order = ramdomPos;
+    });
+  })();
+
+
+  console.log(cards)
+  
 
 cards.forEach(card => card.addEventListener('click', flipCard));
