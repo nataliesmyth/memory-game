@@ -5,8 +5,9 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
-
+console.log(Node)
 function flipCard() {
+    // prevent any card flipping before cards are hidden or match
     if (lockBoard) return;
     // prevent user from clicking the same card twice
     if (this === firstCard) return;
@@ -27,19 +28,19 @@ function flipCard() {
 function checkForMatch() {
     if (firstCard.dataset.framework === secondCard.dataset.framework) {
         disableCards();
+        
         return;
     }
-
+    
     unflipCards();
 }
 
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
     secondCard.removeEventListener('click', flipCard);
-
+    }
     // call this method to reset variables after each round
     resetBoard();
-}
 
 function unflipCards() {
     lockBoard = true;
@@ -78,3 +79,6 @@ function resetBoard() {
   
 
 cards.forEach(card => card.addEventListener('click', flipCard));
+
+
+
