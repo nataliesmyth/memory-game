@@ -50,7 +50,7 @@ function unflipCards() {
 
         // call method to reset board
         resetBoard();
-    }, 1500)
+    }, 700)
 }
 
 // Method for resetting board after second card flip if cards do not match
