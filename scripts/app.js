@@ -5,7 +5,7 @@ let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
 
-console.log(Node)
+// console.log(Node)
 function flipCard() {
     // prevent any card flipping before cards are hidden or match
     if (lockBoard) return;
@@ -51,7 +51,7 @@ function unflipCards() {
 
         // call method to reset board
         resetBoard();
-    }, 1500)
+    }, 1000)
 }
 
 // Method for resetting board after second card flip if cards do not match
@@ -60,11 +60,7 @@ function resetBoard() {
     [firstCard, secondCard] = [null, null];
 }
 
-// unfinished function
-// function resetGame() {
-//     [hasFlippedCard, lockBoard] = [false, false];
-//     [firstCard, secondCard] = [null, null];
-// }
+
 
 
 (function shuffle() {
