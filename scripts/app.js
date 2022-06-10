@@ -4,13 +4,14 @@ const cards = document.querySelectorAll('.memory-card');
 let hasFlippedCard = false;
 let lockBoard = false;
 let firstCard, secondCard;
+let matches = 0;
 
 
 function flipCard() {
     if (lockBoard) return;
     // prevent user from clicking the same card twice
     if (this === firstCard) return;
-
+    console.log(this)
     this.classList.add('flip');
 
     if (!hasFlippedCard) {
@@ -24,14 +25,26 @@ function flipCard() {
     checkForMatch();
 }
 
+
 function checkForMatch() {
+    // console.log(firstCard.dataset.framework)
     if (firstCard.dataset.framework === secondCard.dataset.framework) {
         disableCards();
+        matches++
+        console.log(matches);
+        if (matches === 6) {
+            console.log('game over');
+            
+            // cards.classList.remove('flip');
+        }
+        resetBoard();
         return;
     }
 
     unflipCards();
 }
+
+// console.log(checkForMatch())
 
 function disableCards() {
     firstCard.removeEventListener('click', flipCard);
